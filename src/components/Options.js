@@ -1,8 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Option from './Option'
-// import selectExpenses from '../selectors/expenses'
-
+import selectOptions from '../selectors/options'
 
 export const Options = (props) => (
     <div>
@@ -11,7 +10,7 @@ export const Options = (props) => (
             {
                 props.options.length === 0 ? (
                     <div>
-                        <span>No options</span>
+                        <span> No options </span>
                     </div>
                 ) : (
                     props.options.map((option, idx) => (
@@ -21,13 +20,12 @@ export const Options = (props) => (
             }
         </div>
         
-        
     </div>
 )
 
 const mapStateToProps = (state) => (
     {
-        options: state.options
+        options: selectOptions(state.options, state.filters)
     }
 )
 

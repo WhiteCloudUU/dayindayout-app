@@ -5,6 +5,9 @@ import AppRouter from './routers/AppRouter'
 import configStore from './store/configStore'
 import { addOption } from './actions/options'
 
+// Tmp
+import moment from 'moment'
+
 const store = configStore();
 
 store.subscribe(() => {
@@ -14,27 +17,10 @@ store.subscribe(() => {
 const optionOne = store.dispatch(addOption(
     {
         description: "Reading",
-        createdAt: 0
+        createdAt: moment().valueOf()
     }
 ));
 
-
-
-// const expenseTwo = store.dispatch(addExpense(
-//     {
-//         description: "Gas bill",
-//         amount: 1000,
-//         createdAt: 101
-//     }
-// ));
-
-// const expenseThree = store.dispatch(addExpense(
-//     {
-//         description: "Rent",
-//         amount: 130000,
-//         createdAt: 102
-//     }
-// ));
 
 const jsx = (
     <Provider store={store}>

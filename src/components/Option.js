@@ -1,15 +1,26 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { removeOption } from '../actions/options'
 
-
-const Option = ({ description }) => (
-    <Link to="/">
-        <div>
-            <button>Remove</button>
-            <p>{description}</p>
-        </div>
-    </Link>
+export class Option extends React.Component {
+    onCompleteOption = () => {
         
-)
+    }
 
-export default Option;
+    onDeleteOption = () => {
+        this.props.dispatch(removeOption(this.props.id));
+    }
+
+    render() {
+        
+        return (
+            <div>
+                <button onClick={this.onCompleteOption}>Complete</button>
+                <p>{this.props.description}</p>
+                <button onClick={this.onDeleteOption}>Delete</button>
+            </div>
+        );
+    }
+}   
+
+export default connect()(Option);

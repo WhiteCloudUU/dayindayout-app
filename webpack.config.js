@@ -20,7 +20,7 @@ module.exports = (env) => {
 
   return {
     entry: './src/app.js',
-    // entry: './src/playground/hoc.js',
+    // entry: './src/playground/jsx-indecision.js',
     output: {
       path: path.join(__dirname, 'public', 'dist'),
       filename: 'bundle.js'
