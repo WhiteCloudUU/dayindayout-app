@@ -1,6 +1,7 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
 import optionReducer from '../reducers/options'
 import authReducer from '../reducers/auth'
+import filterReducer from '../reducers/filters'
 import thunk from 'redux-thunk'
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -10,6 +11,7 @@ export default () => {
         combineReducers(
             {
                 options: optionReducer,
+                filters: filterReducer,
                 auth: authReducer
             }
         ),
