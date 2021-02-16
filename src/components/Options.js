@@ -1,31 +1,38 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Option from './Option'
-import selectOptions from '../selectors/options'
+import { selectOptions } from '../selectors/options'
 
-export const Options = (props) => (
-    <div>
-
-        <div>
-            {
-                props.options.length === 0 ? (
-                    <div>
-                        <span> No options </span>
-                    </div>
-                ) : (
-                    props.options.map((option, idx) => (
-                        <Option {...option} key={idx} />
-                    ))
-                )
-            }
-        </div>
+export class Options extends React.Component {
+    render() {
+        return (
+            <div>
+                <div>{this.props.date}</div>
+                <div>
+                    {
+                        this.props.options.length === 0 ? (
+                            <div>
+                                <span> No options </span>
+                            </div>
+                        ) : (
+                            this.props.options.map((option) => (
+                                <Option {...option} key={option} />
+                            ))
+                        )
+                    }
+                </div>
         
-    </div>
-)
+            </div>
+        )
+    }
+} 
 
-const mapStateToProps = (state) => (
+const mapStateToProps = (state, props) => (
     {
-        options: selectOptions(state.options, state.filters)
+        options: selectOptions(state.options, state.filters).filter((options) => {
+            const dateMatch = props.date ? true : true;
+            return dateMatch
+        })
     }
 )
 
