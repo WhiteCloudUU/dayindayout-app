@@ -13,3 +13,11 @@ export const setEndDate = (endDate) => (
         endDate
     }
 )
+
+// SET_DATE
+export const setDate = (date) => (
+    {
+        type: "SET_DATE",
+        date
+    }
+)

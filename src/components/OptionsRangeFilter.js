@@ -1,11 +1,15 @@
 import React from 'react'
+import moment from 'moment'
 import { connect } from 'react-redux'
+
 import { setStartDate, setEndDate } from '../actions/filters'
 import { DateRangePicker } from 'react-dates'
 
-export class ExpenseListFilters extends React.Component {
+export class OptionsRangeFilters extends React.Component {
     state = {
-        calendarFocused: null
+        calendarFocused: null,
+        startDate: moment().startOf('week'),
+        endDate: moment().endOf('week')
     }
 
     onDatesChange = ({ startDate, endDate }) => {
@@ -22,8 +26,8 @@ export class ExpenseListFilters extends React.Component {
             <div>
                 <div>
                     <DateRangePicker 
-                        startDate={this.props.filters.startDate}
-                        endDate={this.props.filters.endDate}
+                        startDate={this.state.startDate}
+                        endDate={this.state.endDate}
                         onDatesChange={this.onDatesChange}
                         focusedInput={this.state.calendarFocused}
                         onFocusChange={this.onFocusChange}
@@ -45,10 +49,9 @@ const mapStateToProps = (state) => (
 
 const mapDispatchToProps = (dispatch) => (
     {
-
         setStartDate: (startDate) => dispatch(setStartDate(startDate)),
         setEndDate: (endDate) => dispatch(setEndDate(endDate)),
     }
 )
 
-export default connect(mapStateToProps, mapDispatchToProps)(ExpenseListFilters);
+export default connect(mapStateToProps, mapDispatchToProps)(OptionsRangeFilters);

@@ -12,7 +12,6 @@ export class Option extends React.Component {
     }
 
     render() {
-        
         return (
             <div>
                 <button onClick={this.onCompleteOption}>Complete</button>
