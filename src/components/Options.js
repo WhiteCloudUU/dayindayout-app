@@ -7,7 +7,11 @@ export class Options extends React.Component {
     render() {
         return (
             <div>
-                <div>{this.props.date}</div>
+                <div>
+                    {
+                        this.props.date && this.props.date.format("dddd MMM Do")
+                    }
+                </div>
                 <div>
                     {
                         this.props.options.length === 0 ? (
@@ -16,7 +20,7 @@ export class Options extends React.Component {
                             </div>
                         ) : (
                             this.props.options.map((option) => (
-                                <Option {...option} key={option} />
+                                <Option {...option} key={option.id} />
                             ))
                         )
                     }
@@ -29,9 +33,9 @@ export class Options extends React.Component {
 
 const mapStateToProps = (state, props) => (
     {
-        options: selectOptions(state.options, state.filters).filter((options) => {
-            const dateMatch = props.date ? true : true;
-            return dateMatch
+        options: selectOptions(state.options, state.filters).filter((option) => {
+            const dateMatch = props.date ? props.date.isSame(option.createdAt, 'day') : true;
+            return dateMatch;
         })
     }
 )
