@@ -11,15 +11,10 @@ export class ListViewPage extends React.Component {
     constructor(props) {
       super(props);
       
-      this.state = {
-              startDate: undefined,
-              endDate: undefined,
-              date: moment()
-      }
-
-      props.dispatch(setDate(this.state.date));
-      props.dispatch(setStartDate(this.state.startDate));
-      props.dispatch(setEndDate(this.state.endDate));
+      props.dispatch(setDate(moment()));
+      props.dispatch(setStartDate(undefined));
+      props.dispatch(setEndDate(undefined));
+      
     }
 
     render() {

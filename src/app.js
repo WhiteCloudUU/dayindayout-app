@@ -5,6 +5,9 @@ import AppRouter, { history } from './routers/AppRouter'
 import configStore from './store/configStore'
 import { addOption } from './actions/options'
 
+import './styles/styles.scss';
+import 'react-dates/lib/css/_datepicker.css'
+
 // Tmp
 import moment from 'moment'
 

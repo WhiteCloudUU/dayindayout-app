@@ -23,6 +23,18 @@ export default (state = optionsReducerDefaultState, action) => {
           return option;
         };
       });
+    
+    case 'TOGGLE_OPTION':
+      return state.map((option) => {
+        if (option.id === action.id) {
+          return {
+            ...option,
+            isCompleted: !option.isCompleted
+          };
+        } else {
+          return option;
+        };
+      })
 
     default:
       return state;

@@ -7,7 +7,7 @@ export const Header = () => (
     <header>
         <h1>DayInDayOut</h1>
         <Link to="/">Today</Link>
-        <Link to="/calendar-view">Range</Link>
+        <Link to="/calendar-view">Calendar</Link>
     </header>
 );
 

@@ -1,15 +1,11 @@
 import React from 'react'
-import moment from 'moment'
 import { connect } from 'react-redux'
-
 import { setStartDate, setEndDate } from '../actions/filters'
 import { DateRangePicker } from 'react-dates'
 
 export class OptionsRangeFilters extends React.Component {
     state = {
-        calendarFocused: null,
-        startDate: moment().startOf('week'),
-        endDate: moment().endOf('week')
+        calendarFocused: null
     }
 
     onDatesChange = ({ startDate, endDate }) => {
@@ -22,20 +18,18 @@ export class OptionsRangeFilters extends React.Component {
     }
 
     render() {
-        return (
+        return ( 
             <div>
-                <div>
-                    <DateRangePicker 
-                        startDate={this.state.startDate}
-                        endDate={this.state.endDate}
-                        onDatesChange={this.onDatesChange}
-                        focusedInput={this.state.calendarFocused}
-                        onFocusChange={this.onFocusChange}
-                        showClearDates={true}
-                        numberOfMonths={1}
-                        isOutsideRange={() => false}
-                    />
-                </div>
+                <DateRangePicker 
+                    startDate={this.props.filters.startDate}
+                    endDate={this.props.filters.endDate}
+                    onDatesChange={this.onDatesChange}
+                    focusedInput={this.state.calendarFocused}
+                    onFocusChange={this.onFocusChange}
+                    showClearDates={true}
+                    numberOfMonths={1}
+                    isOutsideRange={() => false}
+                />
             </div>
         )
     }
