@@ -21,7 +21,7 @@ export class OptionsDateFilters extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="container">
                 <div>
                     <SingleDatePicker
                         date={this.state.date}

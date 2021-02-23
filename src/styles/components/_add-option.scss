@@ -1,0 +1,13 @@
+.add-option {
+    display: flex;
+    justify-content: column;
+    padding: $s-size;
+}
+
+.add-option__input {
+    border: none;
+    border-bottom: 2px solid black;
+    flex-grow: 1;
+    margin-right: $m-size;
+    padding: $s-size;
+}

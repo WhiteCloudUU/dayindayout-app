@@ -29,7 +29,7 @@ export class CalendarViewPage extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="container">
                 <OptionsRangeFilter />
                 {
                     this.state.dates.map((date, idx) => {

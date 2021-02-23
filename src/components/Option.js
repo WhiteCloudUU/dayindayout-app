@@ -4,11 +4,6 @@ import { removeOption, toggleOption } from '../actions/options'
 
 export class Option extends React.Component {
     onCompleteOption = () => {
-        // if(!e.target.parentElement.className) {
-        //     e.target.parentElement.className = "option--completed";
-        // } else {
-        //     e.target.parentElement.className = "";
-        // }
         this.props.dispatch(toggleOption(this.props.id));
         
     }
@@ -19,13 +14,16 @@ export class Option extends React.Component {
 
     render() {
         return (
-            <div 
-            className={this.props.isCompleted ? "option--completed" : ""}
-            >
-                {/* <button onClick={this.onCompleteOption}>Complete</button> */}
-                <input type="checkbox" onChange={this.onCompleteOption}/>
-                <p>{this.props.description}</p>
-                <button onClick={this.onDeleteOption}>Delete</button>
+            <div className="option">
+                <div className="option__description">
+                    <input type="checkbox" onChange={this.onCompleteOption}/>
+                    <p className={this.props.isCompleted ? "option--completed" : ""}>{this.props.description}</p>
+                </div>
+                <button 
+                    className="button button--circle button--remove" 
+                    onClick={this.onDeleteOption}>
+                    X
+                </button>
             </div>
         );
     }
