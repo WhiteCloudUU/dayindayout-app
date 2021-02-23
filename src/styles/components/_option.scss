@@ -1,4 +1,19 @@
+.option {
+    background-color: $grey;
+    border-radius: $s-size;
+    border: 2px dashed black;
+    display: flex;
+    justify-content: space-between;
+    padding: $xs-size;
+    margin-bottom: $xs-size;
+}
+
+.option__description {
+    display: flex;
+    justify-content: space-between;
+}
+
 .option--completed {
-    color: $off-white;
     text-decoration: line-through;
+    color: $dark-grey;
 }

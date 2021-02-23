@@ -17,6 +17,11 @@ export const addOption = (
   }
 });
 
+// REMOVE_ALL_OPTIONS
+export const removeAllOptions = () => ({
+  type: 'REMOVE_ALL_OPTIONS'
+});
+
 // REMOVE_OPTION
 export const removeOption = (id) => ({
   type: 'REMOVE_OPTION',

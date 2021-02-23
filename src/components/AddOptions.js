@@ -31,11 +31,11 @@ export class AddOption extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="container container--box">
         {this.state.error && <p>{this.state.error}</p>}
-        <form onSubmit={this.onSubmit}>
-          <input type="text" name="option" />
-          <button>Add Option</button>
+        <form className="add-option" onSubmit={this.onSubmit}>
+          <input className="add-option__input" type="text" name="option" />
+          <button className="button button--circle button--add">+</button>
         </form>
       </div>
     );

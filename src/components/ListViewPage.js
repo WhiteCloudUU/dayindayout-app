@@ -14,7 +14,7 @@ export class ListViewPage extends React.Component {
       props.dispatch(setDate(moment()));
       props.dispatch(setStartDate(undefined));
       props.dispatch(setEndDate(undefined));
-      
+
     }
 
     render() {
