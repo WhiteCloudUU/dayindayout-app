@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Option from './Option'
-import { selectOptions } from '../selectors/options'
+import { selectOptionsByRange, selectOptionsByDate } from '../selectors/options'
 import { removeAllOptions } from '../actions/options'
 
 export class Options extends React.Component {
@@ -12,7 +12,7 @@ export class Options extends React.Component {
         return (
             <div className="container container--box">
                 <div className="option-group">
-                    <div>
+                    <div className="option-group__date">
                         {
                             this.props.date && this.props.date.format("dddd MMM Do")
                         }
@@ -20,7 +20,13 @@ export class Options extends React.Component {
 
                     <div className="option-group__header">
                         <h3>Options</h3>
-                        <button  className="button" onClick={this.onClearAll}>Clear all</button>
+                        <button  
+                            className="button button--slot" 
+                            onClick={this.onClearAll}
+                            disabled={this.props.options.length === 0}
+                        >
+                            X X X
+                        </button>
                     </div>
 
                     <div>
@@ -38,9 +44,7 @@ export class Options extends React.Component {
                             )
                         }
                     </div>
-        
                 </div>
-
             </div>
             
         )
@@ -49,10 +53,13 @@ export class Options extends React.Component {
 
 const mapStateToProps = (state, props) => (
     {
-        options: selectOptions(state.options, state.filters).filter((option) => {
-            const dateMatch = props.date ? props.date.isSame(option.createdAt, 'day') : true;
-            return dateMatch;
-        })
+        // options: selectOptions(state.options, state.filters).filter((option) => {
+        //     const dateMatch = props.date ? props.date.isSame(option.createdAt, 'day') : true;
+        //     return dateMatch;
+        // })
+        options: props.from === "ListViewPage" ? 
+            selectOptionsByDate(state.options, state.filters) : // props.from === "ListViewPage"
+            selectOptionsByRange(state.options, state.filters, props.date) // props.from === "CalendarViewPage"
     }
 )
 

@@ -1,40 +1,25 @@
 import React from 'react'
 import moment from 'moment'
 import { connect } from 'react-redux'
-import { setDate, setStartDate, setEndDate } from '../actions/filters'
 import OptionsRangeFilter from './OptionsRangeFilter'
 import Options from './Options'
 
 export class CalendarViewPage extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            startDate: moment().startOf('week'),
-            endDate: moment().endOf('week'),
-            dates: []
-        }
-
-        for (let date = this.state.startDate.clone(); 
-                date.isSameOrBefore(this.state.endDate); 
-                    date.add(1, 'days')) {
-            this.state.dates.push(date.clone());
-        }
-
-        // console.log(this.state.dates);
-
-        props.dispatch(setDate(undefined));
-        props.dispatch(setStartDate(this.state.startDate));
-        props.dispatch(setEndDate(this.state.endDate));
-    }
-
     render() {
+        const dates = [];
+        for (let date = this.props.filters.startDate.clone(); 
+                date.isSameOrBefore(this.props.filters.endDate); 
+                    date.add(1, 'days')) {
+            dates.push(date.clone());
+        }
+        console.log(dates);
         return (
-            <div className="container">
+            <div>
                 <OptionsRangeFilter />
                 {
-                    this.state.dates.map((date, idx) => {
+                    dates.map((date, idx) => {
                         return (
-                            <Options date={date} key={idx} />
+                            <Options from={"CalendarViewPage"}date={date} key={idx} />
                         )
                     })
                 }
@@ -43,5 +28,11 @@ export class CalendarViewPage extends React.Component {
     }
 };
 
+const mapStateToProps = (state) => (
+    {
+        filters: state.filters
+    }
+);
 
-export default connect()(CalendarViewPage);
+
+export default connect(mapStateToProps)(CalendarViewPage);

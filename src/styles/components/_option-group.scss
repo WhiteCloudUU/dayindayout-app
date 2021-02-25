@@ -1,18 +1,26 @@
 .option-group {
-    margin: $s-size 0;
+    margin: 0;
 }
 
 .option-group__header {
-    
     display: flex;
     justify-content: space-between;
-    padding: $xs-size;
-    
+    align-items: center;
+    padding: 0 $s-size;
 }
 
 .option-group__message {
-    border-bottom: 2px solid;
+    color: $dark-grey;
+    font-style: italic;
     margin: 0;
     padding: $s-size;
     text-align: center;
+}
+
+.option-group__date {
+    color: $dark-grey;
+    font-style: italic;
+    margin: 0;
+    padding-top: $s-size;
+    text-align: left;
 }

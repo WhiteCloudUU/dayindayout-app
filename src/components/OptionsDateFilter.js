@@ -22,7 +22,7 @@ export class OptionsDateFilters extends React.Component {
     render() {
         return (
             <div className="container">
-                <div>
+                <div className="react-date">
                     <SingleDatePicker
                         date={this.state.date}
                         onDateChange={this.onDateChange}

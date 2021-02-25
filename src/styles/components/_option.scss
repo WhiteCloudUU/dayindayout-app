@@ -4,13 +4,20 @@
     border: 2px dashed black;
     display: flex;
     justify-content: space-between;
-    padding: $xs-size;
+    align-items: center;
+    padding: $xs-size $s-size;
     margin-bottom: $xs-size;
 }
 
 .option__description {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+}
+
+.option__decription__checkbox {
+    transform: scale(1.75);
+    margin-right: $s-size;
 }
 
 .option--completed {

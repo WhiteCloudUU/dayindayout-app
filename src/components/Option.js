@@ -16,7 +16,11 @@ export class Option extends React.Component {
         return (
             <div className="option">
                 <div className="option__description">
-                    <input type="checkbox" onChange={this.onCompleteOption}/>
+                    <input 
+                        className="option__decription__checkbox" 
+                        type="checkbox" 
+                        onChange={this.onCompleteOption}
+                    />
                     <p className={this.props.isCompleted ? "option--completed" : ""}>{this.props.description}</p>
                 </div>
                 <button 
