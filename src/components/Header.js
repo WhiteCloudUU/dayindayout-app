@@ -6,7 +6,6 @@ import { startLogout } from '../actions/auth'
 export const Header = () => (
     <header className="header">
         <div className="container container--box">
-
             <h1 className="header__title">DayInDayOut</h1>
             <div className="header__content">
                 <Link className="header__link" to="/">Today</Link>

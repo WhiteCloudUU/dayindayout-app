@@ -1,9 +1,9 @@
 import moment from 'moment'
 
 const filterReducerDefaultState = {
-    startDate: undefined,
-    endDate: undefined,
-    date: undefined
+    startDate: moment().startOf('week'),
+    endDate: moment().endOf('week'),
+    date: moment()
 };
 export default (state = filterReducerDefaultState, action) => {
     switch (action.type) {

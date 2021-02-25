@@ -18,19 +18,22 @@ export class OptionsRangeFilters extends React.Component {
     }
 
     render() {
-        return ( 
-            <div>
-                <DateRangePicker 
-                    startDate={this.props.filters.startDate}
-                    endDate={this.props.filters.endDate}
-                    onDatesChange={this.onDatesChange}
-                    focusedInput={this.state.calendarFocused}
-                    onFocusChange={this.onFocusChange}
-                    showClearDates={true}
-                    numberOfMonths={1}
-                    isOutsideRange={() => false}
-                />
-            </div>
+        return (
+            <div className="container">
+                <div className="react-date">
+                    <DateRangePicker 
+                        startDate={this.props.filters.startDate}
+                        endDate={this.props.filters.endDate}
+                        onDatesChange={this.onDatesChange}
+                        focusedInput={this.state.calendarFocused}
+                        onFocusChange={this.onFocusChange}
+                        showClearDates={true}
+                        numberOfMonths={1}
+                        isOutsideRange={() => false}
+                    />
+                </div>
+            </div> 
+            
         )
     }
 }

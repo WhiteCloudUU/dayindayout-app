@@ -2,14 +2,35 @@
     background-color: white;
     padding: 0;
     border: 0;
-    font-size: $medium-font;
+    
 }
+
+.button--slot {
+    width: 70px;
+    height: 35px;
+    border-radius: 35px;
+    border: 2px solid;
+    &:hover:enabled {
+        background-color: black;
+        color: white;
+    }
+}
+
+.button--slot:disabled {
+    background-color: $grey;
+}
+
+
 
 .button--circle {
     width: 35px;
     height: 35px;
     border-radius: 50%;
     border: 2px solid;
+    &:hover {
+        background-color: black;
+        color: white;
+    }
 }
 
 .button--add {
