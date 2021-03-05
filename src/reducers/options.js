@@ -9,9 +9,6 @@ export default (state = optionsReducerDefaultState, action) => {
         action.option
       ];
     
-    case 'REMOVE_ALL_OPTIONS':
-      return [];
-
     case 'REMOVE_OPTION':
       return state.filter(({ id }) => id !== action.id);
 
@@ -38,6 +35,9 @@ export default (state = optionsReducerDefaultState, action) => {
           return option;
         };
       })
+    
+    case 'SET_OPTIONS':
+      return action.options;
 
     default:
       return state;

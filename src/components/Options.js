@@ -2,13 +2,19 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Option from './Option'
 import { selectOptionsByRange, selectOptionsByDate } from '../selectors/options'
-import { removeAllOptions } from '../actions/options'
+import { startRemoveOption } from '../actions/options'
 
 export class Options extends React.Component {
     onClearAll = () => {
-        this.props.dispatch(removeAllOptions());
+        
+        this.props.options.forEach((option) => {
+            this.props.startRemoveOption(option.id);
+        });
+        
     }
+
     render() {
+        
         return (
             <div className="container container--box">
                 <div className="option-group">
@@ -53,14 +59,18 @@ export class Options extends React.Component {
 
 const mapStateToProps = (state, props) => (
     {
-        // options: selectOptions(state.options, state.filters).filter((option) => {
-        //     const dateMatch = props.date ? props.date.isSame(option.createdAt, 'day') : true;
-        //     return dateMatch;
-        // })
-        options: props.from === "ListViewPage" ? 
-            selectOptionsByDate(state.options, state.filters) : // props.from === "ListViewPage"
-            selectOptionsByRange(state.options, state.filters, props.date) // props.from === "CalendarViewPage"
+        options: props.date ? 
+            selectOptionsByRange(state.options, state.filters, props.date) :
+            selectOptionsByDate(state.options, state.filters),
+
+        filters: state.filters 
     }
 )
 
-export default connect(mapStateToProps)(Options);
+const mapDispatchToProps = (dispatch) => (
+    {
+        startRemoveOption: (option) => dispatch(startRemoveOption(option))
+    }
+);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Options);

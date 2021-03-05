@@ -1,27 +1,29 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { removeOption, toggleOption } from '../actions/options'
+import { startRemoveOption, startToggleOption, toggleOption } from '../actions/options'
 
 export class Option extends React.Component {
     onCompleteOption = () => {
-        this.props.dispatch(toggleOption(this.props.id));
-        
+        this.props.startToggleOption(this.props.id);
     }
 
     onDeleteOption = () => {
-        this.props.dispatch(removeOption(this.props.id));
+        
+        this.props.startRemoveOption(this.props.id);
     }
 
     render() {
         return (
             <div className="option">
                 <div className="option__description">
-                    <input 
-                        className="option__decription__checkbox" 
-                        type="checkbox" 
-                        onChange={this.onCompleteOption}
-                    />
-                    <p className={this.props.isCompleted ? "option--completed" : ""}>{this.props.description}</p>
+                        <input 
+                            className="option__decription__checkbox" 
+                            type="checkbox" 
+                            onChange={this.onCompleteOption}
+                        />
+                        <p className={!this.props.isCompleted ? "" : "option__description--completed" }>
+                            {this.props.description}
+                        </p>
                 </div>
                 <button 
                     className="button button--circle button--remove" 
@@ -31,6 +33,13 @@ export class Option extends React.Component {
             </div>
         );
     }
-}   
+}
 
-export default connect()(Option);
+const mapDispatchToProps = (dispatch) => (
+    {
+        startRemoveOption: (option) => dispatch(startRemoveOption(option)),
+        startToggleOption: (id) => dispatch(startToggleOption(id))
+    }
+);
+
+export default connect(undefined, mapDispatchToProps)(Option);

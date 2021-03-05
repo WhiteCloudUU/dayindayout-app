@@ -12,14 +12,14 @@ export class CalendarViewPage extends React.Component {
                     date.add(1, 'days')) {
             dates.push(date.clone());
         }
-        console.log(dates);
+        
         return (
             <div>
                 <OptionsRangeFilter />
                 {
                     dates.map((date, idx) => {
                         return (
-                            <Options from={"CalendarViewPage"}date={date} key={idx} />
+                            <Options date={date} key={idx} />
                         )
                     })
                 }

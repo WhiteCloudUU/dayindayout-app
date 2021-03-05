@@ -1,7 +1,7 @@
 import React from 'react';
 import moment from 'moment'
 import { connect } from 'react-redux';
-import { addOption } from '../actions/options'
+import { startAddOption } from '../actions/options'
 
 export class AddOption extends React.Component {
   state = {
@@ -10,18 +10,18 @@ export class AddOption extends React.Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    const option = e.target.elements.option.value.trim();
+    const optionText = e.target.elements.option.value.trim();
 
     let error = undefined;
-    if (!option) {
+    if (!optionText) {
         error = 'Enter valid value to add item';
     } else {
-        this.props.dispatch(addOption(
+        this.props.startAddOption(
             {
-                description: option,
-                createdAt: moment().valueOf()
+                description: optionText,
+                createdAt: this.props.filters.date.valueOf()
             }
-        ))
+        );
         e.target.elements.option.value = '';
     }
 
@@ -30,6 +30,7 @@ export class AddOption extends React.Component {
   };
 
   render() {
+    
     return (
       <div className="container container--box">
         
@@ -43,4 +44,18 @@ export class AddOption extends React.Component {
   }
 }
 
-export default connect()(AddOption)
+const mapStateToProps = (state) => (
+  {
+    filters: state.filters
+  }
+)
+
+
+const mapDispatchToProps = (dispatch) => (
+  {
+      startAddOption: (option) => dispatch(startAddOption(option))
+  }
+);
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddOption)

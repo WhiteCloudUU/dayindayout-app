@@ -11,7 +11,7 @@ export class ListViewPage extends React.Component {
       return (
         <div>
           <OptionsDateFilter />
-          <Options from={"ListViewPage"} />
+          <Options />
           <AddOptions />
         </div>
       )
