@@ -1,5 +1,4 @@
 import React from 'react';
-import moment from 'moment'
 import { connect } from 'react-redux';
 import { startAddOption } from '../actions/options'
 
@@ -13,13 +12,22 @@ export class AddOption extends React.Component {
     const optionText = e.target.elements.option.value.trim();
 
     let error = undefined;
+    const optionTexts = this.props.options.map((option) => (option.description.toLowerCase()));
+    console.log(optionTexts);
     if (!optionText) {
-        error = 'Enter valid value to add item';
+
+      error = "Enter valid value to add item";
+
+    } else if (optionTexts.includes(optionText.toLowerCase())) {
+
+      error = "Dude! You haven't finished it yet";
+
     } else {
         this.props.startAddOption(
             {
                 description: optionText,
-                createdAt: this.props.filters.date.valueOf()
+                createdAt: this.props.filters.date.valueOf(),
+                isCompleted: false
             }
         );
         e.target.elements.option.value = '';
@@ -46,6 +54,7 @@ export class AddOption extends React.Component {
 
 const mapStateToProps = (state) => (
   {
+    options: state.options,
     filters: state.filters
   }
 )

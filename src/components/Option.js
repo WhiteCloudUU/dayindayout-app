@@ -20,6 +20,7 @@ export class Option extends React.Component {
                             className="option__decription__checkbox" 
                             type="checkbox" 
                             onChange={this.onCompleteOption}
+                            checked={this.props.isCompleted}
                         />
                         <p className={!this.props.isCompleted ? "" : "option__description--completed" }>
                             {this.props.description}
