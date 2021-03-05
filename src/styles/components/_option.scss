@@ -1,10 +1,13 @@
 .option {
     background-color: $grey;
+
     border-radius: $s-size;
     border: 2px dashed black;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     padding: $xs-size $s-size;
     margin-bottom: $xs-size;
 }
@@ -16,11 +19,12 @@
 }
 
 .option__decription__checkbox {
-    transform: scale(1.75);
+    transform: scale(1.5);
     margin-right: $s-size;
 }
 
-.option--completed {
+.option__description--completed {
+    
     text-decoration: line-through;
     color: $dark-grey;
 }
