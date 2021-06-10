@@ -1,12 +1,11 @@
-.option-group {
-    margin: 0;
-}
+
 
 .option-group__header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 $s-size;
+
+    padding: 0;
 }
 
 .option-group__message {
@@ -21,6 +20,6 @@
     color: $dark-grey;
     font-style: italic;
     margin: 0;
-    padding-top: $s-size;
+    padding: $s-size 0 0 0;
     text-align: left;
 }

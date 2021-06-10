@@ -8,16 +8,8 @@ const config = {
     storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
     messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
     appId: process.env.FIREBASE_APP_ID
-    
-    // apiKey: "AIzaSyDkXIHTrvNVpiJvdAJ3rquoYBqQVqPhZWM",
-    // authDomain: "dayindayout.firebaseapp.com",
-    // databaseURL: "https://dayindayout-default-rtdb.firebaseio.com",
-    // projectId: "dayindayout",
-    // storageBucket: "dayindayout.appspot.com",
-    // messagingSenderId: "213176321368",
-    // appId: "1:213176321368:web:4a82db335bfed92851d12d"  
 };
-console.log(config.databaseURL);
+
 
 firebase.initializeApp(config);
 

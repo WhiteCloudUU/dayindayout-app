@@ -5,7 +5,7 @@ import Options from './Options'
 import AddOptions from './AddOptions'
 import OptionsDateFilter from './OptionsDateFilter'
 
-export class ListViewPage extends React.Component {
+export default class ListViewPage extends React.Component {
 
     render() {
       return (
@@ -19,4 +19,4 @@ export class ListViewPage extends React.Component {
 
 }
 
-export default connect()(ListViewPage);
+

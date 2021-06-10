@@ -13,10 +13,11 @@ export class AddOption extends React.Component {
 
     let error = undefined;
     const optionTexts = this.props.options.map((option) => (option.description.toLowerCase()));
-    console.log(optionTexts);
+    
+
     if (!optionText) {
 
-      error = "Enter valid value to add item";
+      error = "Do something! YOLO!";
 
     } else if (optionTexts.includes(optionText.toLowerCase())) {
 
@@ -43,10 +44,17 @@ export class AddOption extends React.Component {
       <div className="container container--box">
         
         {this.state.error && <p className="add-option__error">{this.state.error}</p>}
+
         <form className="add-option" onSubmit={this.onSubmit}>
+
           <input className="add-option__input" type="text" name="option" />
-          <button className="button button--circle button--add">+</button>
+
+          <button className="button button--circle button--add">
+            +
+          </button>
+
         </form>
+        
       </div>
     );
   }

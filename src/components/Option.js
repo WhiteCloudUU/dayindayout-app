@@ -26,11 +26,13 @@ export class Option extends React.Component {
                             {this.props.description}
                         </p>
                 </div>
+
                 <button 
-                    className="button button--circle button--remove" 
+                    className="button button--circle" 
                     onClick={this.onDeleteOption}>
                     X
                 </button>
+                
             </div>
         );
     }

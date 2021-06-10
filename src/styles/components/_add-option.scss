@@ -1,7 +1,8 @@
 .add-option {
     display: flex;
-    justify-content: column;
-    padding: $s-size 0;
+    align-items: center;
+    
+    padding: $s-size $s-size $s-size 0;
 }
 
 .add-option__input {
@@ -11,15 +12,17 @@
     margin-right: $m-size;
     padding: $s-size;
     font-size: $medium-font;
-    font-family: 'PT Mono', monospace; // Have to set font style here independently
+    font-family: 'PT Mono', monospace; // Must set font style here independently
 }
 
 .add-option__input:focus {
     outline: none; // Remove default input highlight outline
+    
     background-color: $grey;
     border-radius: $s-size;
     border: 2px dashed black;
-    font-family: 'PT Mono', monospace; // Have to set font style here independently
+
+    font-family: 'PT Mono', monospace; // Must to set font style here independently
 }
 
 // Add Option Error

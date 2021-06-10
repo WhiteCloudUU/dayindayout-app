@@ -2,7 +2,10 @@
     background-color: white;
     padding: 0;
     border: 0;
-    
+    &:hover {
+        background-color: black;
+        color: white;
+    }
 }
 
 .button--slot {
@@ -10,16 +13,7 @@
     height: 35px;
     border-radius: 35px;
     border: 2px solid;
-    &:hover:enabled {
-        background-color: black;
-        color: white;
-    }
 }
-
-.button--slot:disabled {
-    background-color: $grey;
-}
-
 
 
 .button--circle {
@@ -27,16 +21,8 @@
     height: 35px;
     border-radius: 50%;
     border: 2px solid;
-    &:hover {
-        background-color: black;
-        color: white;
-    }
 }
 
 .button--add {
     font-size: $large-font;
-}
-
-.button--remove {
-    font-size: $small-font;
 }

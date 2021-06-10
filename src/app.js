@@ -10,10 +10,6 @@ import { startSetOptions } from './actions/options'
 import './styles/styles.scss';
 import 'react-dates/lib/css/_datepicker.css'
 
-// Tmp
-import moment from 'moment'
-import { addOption, setOptions } from './actions/options'
-
 const store = configStore();
 
 store.subscribe(() => {
