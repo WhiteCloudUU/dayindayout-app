@@ -20,6 +20,8 @@ export class OptionsDateFilters extends React.Component {
     };
 
     render() {
+        // this.props.setDate(this.state.date);
+
         return (
             <div className="container">
                 <div className="react-date">

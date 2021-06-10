@@ -4,15 +4,17 @@ import { connect } from 'react-redux'
 import { startLogout } from '../actions/auth'
 
 export const Header = () => (
-    <header className="header">
-        <div className="container container--box">
-            <h1 className="header__title">DayInDayOut</h1>
-            <div className="header__content">
-                <Link className="header__link" to="/">Today</Link>
-                <Link className="header__link" to="/calendar-view">Calendar</Link>
-            </div>
+    
+    <div className="container container--box">
+        <h1 className="header__title">DayInDayOut</h1>
+
+        <div className="header__content">
+            <Link className="header__link" to="/">Today</Link>
+            <Link className="header__link" to="/calendar-view">Calendar view</Link>
             
         </div>
-    </header>
+        
+    </div>
+    
 );
 

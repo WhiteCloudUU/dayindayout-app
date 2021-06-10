@@ -27,7 +27,7 @@ export class OptionsRangeFilters extends React.Component {
                         onDatesChange={this.onDatesChange}
                         focusedInput={this.state.calendarFocused}
                         onFocusChange={this.onFocusChange}
-                        showClearDates={true}
+                        showClearDates={false}
                         numberOfMonths={1}
                         isOutsideRange={() => false}
                     />

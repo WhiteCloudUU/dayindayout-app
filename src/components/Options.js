@@ -14,44 +14,44 @@ export class Options extends React.Component {
     }
 
     render() {
-        
+        // console.log("Options component", this.props.options)
         return (
             <div className="container container--box">
-                <div className="option-group">
-                    <div className="option-group__date">
-                        {
-                            this.props.date && this.props.date.format("dddd MMM Do")
-                        }
-                    </div>
+                
+                <div className="option-group__date">
+                    {
+                        this.props.date && this.props.date.format("dddd MMM Do")
+                    }
+                </div>
 
-                    <div className="option-group__header">
-                        <h3>Options</h3>
-                        <button  
-                            className="button button--slot" 
-                            onClick={this.onClearAll}
-                            disabled={this.props.options.length === 0}
-                        >
-                            X X X
-                        </button>
-                    </div>
+                <div className="option-group__header">
+                    <h3>Options</h3>
+                    <button  
+                        className="button button--slot" 
+                        onClick={this.onClearAll}
+                        disabled={this.props.options.length === 0}
+                    >
+                        X X X
+                    </button>
+                </div>
 
-                    <div>
-                        {
-                            this.props.options.length === 0 ? (
-                                <div className="option-group__message">
-                                    <span> 
-                                        Working people! Working souls! 
-                                    </span>
-                                </div>
-                            ) : (
-                                this.props.options.map((option) => (
-                                    <Option {...option} key={option.id} />
-                                ))
-                            )
-                        }
-                    </div>
+                <div>
+                    {
+                        this.props.options.length === 0 ? (
+                            <div className="option-group__message">
+                                <span> 
+                                    Working people! Working souls! 
+                                </span>
+                            </div>
+                        ) : (
+                            this.props.options.map((option) => (
+                                <Option {...option} key={option.id} />
+                            ))
+                        )
+                    }
                 </div>
             </div>
+            
             
         )
     }
