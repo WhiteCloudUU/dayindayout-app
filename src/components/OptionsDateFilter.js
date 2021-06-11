@@ -5,9 +5,15 @@ import { setDate } from '../actions/filters'
 import { SingleDatePicker } from 'react-dates'
 
 export class OptionsDateFilters extends React.Component {
-    state = {
-        calendarFocused: false,
-        date: moment()
+    constructor(props) {
+        super(props);
+
+        props.setDate(moment());
+
+        this.state = {
+            calendarFocused: false,
+            date: moment()
+        }
     }
 
     onDateChange = (date) => {
@@ -20,8 +26,7 @@ export class OptionsDateFilters extends React.Component {
     };
 
     render() {
-        // this.props.setDate(this.state.date);
-
+        
         return (
             <div className="container">
                 <div className="react-date">

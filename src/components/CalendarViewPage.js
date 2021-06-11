@@ -5,6 +5,7 @@ import OptionsRangeFilter from './OptionsRangeFilter'
 import Options from './Options'
 
 export class CalendarViewPage extends React.Component {
+    
     render() {
         const dates = [];
         for (let date = this.props.filters.startDate.clone(); 
