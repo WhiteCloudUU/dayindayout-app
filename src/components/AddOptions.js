@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 import { connect } from 'react-redux';
 import { startAddOption } from '../actions/options'
 
@@ -12,17 +13,20 @@ export class AddOption extends React.Component {
     const optionText = e.target.elements.option.value.trim();
 
     let error = undefined;
-    const optionTexts = this.props.options.map((option) => (option.description.toLowerCase()));
-    
+    // const optionTexts = this.props.options.map((option) => option.description.toLowerCase());
+    const foundOption = this.props.options.find((option) => 
+      option.description.toLowerCase() === optionText.toLowerCase()
+    );     
 
     if (!optionText) {
 
       error = "Do something! YOLO!";
 
-    } else if (optionTexts.includes(optionText.toLowerCase())) {
+    } else if (foundOption) {
 
-      error = "Dude! You haven't finished it yet";
-
+      error = `Dude! You haven't finished it yet since 
+              ${moment(foundOption.createdAt).format("MM/DD/YYYY")}`;
+      
     } else {
         this.props.startAddOption(
             {

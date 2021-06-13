@@ -29,7 +29,8 @@ export class Option extends React.Component {
 
                 <button 
                     className="button button--circle" 
-                    onClick={this.onDeleteOption}>
+                    onClick={this.onDeleteOption}
+                >
                     X
                 </button>
                 

@@ -25,11 +25,31 @@ export class OptionsDateFilters extends React.Component {
         this.setState(() => ({ calendarFocused: focused }));
     };
 
+    onBackwardClick = () => {
+        const date = this.state.date.subtract(1, "days");
+        this.setState(() => ({ date }));
+        this.props.setDate(date);
+    }
+
+    onForwardClick = () => {
+        const date = this.state.date.add(1, "days");
+        this.setState(() => ({ date }));
+        this.props.setDate(date);
+    }
+
     render() {
         
         return (
             <div className="container">
-                <div className="react-date">
+                <div className="date-filter">
+                    <button
+                        onClick={this.onBackwardClick}
+                        className="button button--circle button--add" 
+                    >
+                        {`<`}
+                    </button>
+                    
+                    
                     <SingleDatePicker
                         date={this.state.date}
                         onDateChange={this.onDateChange}
@@ -38,6 +58,14 @@ export class OptionsDateFilters extends React.Component {
                         numberOfMonths={1}
                         isOutsideRange={() => false}
                     />
+            
+                    <button
+                        onClick={this.onForwardClick}
+                        className="button button--circle button--add" 
+                    >
+                        {`>`}
+                    </button>
+
                 </div>
             </div>
         )
