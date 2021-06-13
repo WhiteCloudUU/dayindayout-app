@@ -6,10 +6,6 @@
         background-color: black;
         color: white;
     }
-
-    // display: flex;
-    // align-items: center;
-    // justify-content: center;
    
 }
 
@@ -28,7 +24,19 @@
 }
 
 
-
 .button--add {
     font-size: $large-font;
+}
+
+.button-header {
+    font-size: $header-font;
+    font-weight: 1000;
+
+    background-color: white;
+    border: none;
+    font-family: 'PT Mono', monospace; // Must set font style here independently
+
+    &:hover {
+        font-size: #{$header-font * 1.2};;
+    }
 }

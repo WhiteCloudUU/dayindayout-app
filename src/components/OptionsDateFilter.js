@@ -12,12 +12,13 @@ export class OptionsDateFilters extends React.Component {
 
         this.state = {
             calendarFocused: false,
-            date: moment()
+            
         }
+        
     }
 
     onDateChange = (date) => {
-        this.setState(() => ({ date }));
+        
         this.props.setDate(date);
     };
 
@@ -26,14 +27,14 @@ export class OptionsDateFilters extends React.Component {
     };
 
     onBackwardClick = () => {
-        const date = this.state.date.subtract(1, "days");
-        this.setState(() => ({ date }));
+        const date = this.props.filters.date.subtract(1, "days");
+        
         this.props.setDate(date);
     }
 
     onForwardClick = () => {
-        const date = this.state.date.add(1, "days");
-        this.setState(() => ({ date }));
+        const date = this.props.filters.date.add(1, "days");
+        
         this.props.setDate(date);
     }
 
@@ -51,7 +52,7 @@ export class OptionsDateFilters extends React.Component {
                     
                     
                     <SingleDatePicker
-                        date={this.state.date}
+                        date={this.props.filters.date}
                         onDateChange={this.onDateChange}
                         focused={this.state.calendarFocused}
                         onFocusChange={this.onFocusChange}
