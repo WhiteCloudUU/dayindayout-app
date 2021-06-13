@@ -7,6 +7,8 @@ import Options from './Options'
 export class CalendarViewPage extends React.Component {
     
     render() {
+        // Feed in dates based on filter.startDate and filter.endDate
+        // Have to use .clone() due to moment()'s pointer-like feature
         const dates = [];
         for (let date = this.props.filters.startDate.clone(); 
                 date.isSameOrBefore(this.props.filters.endDate); 

@@ -5,7 +5,7 @@ import { selectOptionsByRange, selectOptionsByDate } from '../selectors/options'
 import { startRemoveOption } from '../actions/options'
 
 export class Options extends React.Component {
-    onClearAll = () => {
+    onRemoveAll = () => {
         
         this.props.options.forEach((option) => {
             this.props.startRemoveOption(option.id);
@@ -14,7 +14,7 @@ export class Options extends React.Component {
     }
 
     render() {
-        // console.log("Options component", this.props.options)
+        
         return (
             <div className="container container--box">
                 
@@ -25,10 +25,10 @@ export class Options extends React.Component {
                 </div>
 
                 <div className="option-group__header">
-                    <h3>Options</h3>
+                    <h3> Options </h3>
                     <button  
                         className="button button--slot" 
-                        onClick={this.onClearAll}
+                        onClick={this.onRemoveAll}
                         disabled={this.props.options.length === 0}
                     >
                         X X X

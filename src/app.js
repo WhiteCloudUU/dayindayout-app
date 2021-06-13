@@ -16,6 +16,27 @@ store.subscribe(() => {
     console.log(store.getState());
 });
 
+
+
+ReactDOM.render(<LoadingPage />, document.getElementById('app'));
+
+const jsx = (
+    <Provider store={store}>
+        <AppRouter />
+    </Provider>
+)
+
+store.dispatch(startSetOptions())
+    .then(() => {
+        ReactDOM.render(jsx, document.getElementById('app'));
+    })
+
+
+
+
+
+
+    
 // const options = [
 //     {
 //         description: "Reading",
@@ -33,16 +54,3 @@ store.subscribe(() => {
 //         id: "Only for test"
 //     }
 // ));
-
-ReactDOM.render(<LoadingPage />, document.getElementById('app'));
-
-const jsx = (
-    <Provider store={store}>
-        <AppRouter />
-    </Provider>
-)
-
-store.dispatch(startSetOptions())
-    .then(() => {
-        ReactDOM.render(jsx, document.getElementById('app'));
-    })

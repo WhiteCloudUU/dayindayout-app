@@ -6,22 +6,28 @@
         background-color: black;
         color: white;
     }
+
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+   
 }
 
-.button--slot {
-    width: 70px;
+.button--circle {
+    width: 35px;
+    
     height: 35px;
     border-radius: 35px;
     border: 2px solid;
 }
 
+.button--slot {
+    @extend .button--circle;
 
-.button--circle {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    border: 2px solid;
+    width: 70px;
 }
+
+
 
 .button--add {
     font-size: $large-font;

@@ -5,9 +5,11 @@ export const selectOptionsByRange = (options, { startDate, endDate }, propsDate)
         const createdAtMoment = moment(option.createdAt);
         const startDateMatch = startDate ? createdAtMoment.isSameOrAfter(startDate, 'day') : true;
         const endDateMatch = endDate ? createdAtMoment.isSameOrBefore(endDate, 'day') : true;
+        
         const propsDateMatch = propsDate ? createdAtMoment.isSame(propsDate, 'day') : true;
 
         return startDateMatch && endDateMatch && propsDateMatch;
+        
     })
 }
 
