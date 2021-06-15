@@ -45,9 +45,10 @@ export class OptionsDateFilters extends React.Component {
                 <div className="date-filter">
                     <button
                         onClick={this.onBackwardClick}
-                        className="button button--circle button--add" 
+                        className="button button--nav" 
                     >
-                        {`<`}
+                        {' ◀︎'}
+                        
                     </button>
                     
                     
@@ -62,9 +63,9 @@ export class OptionsDateFilters extends React.Component {
             
                     <button
                         onClick={this.onForwardClick}
-                        className="button button--circle button--add" 
+                        className="button button--nav" 
                     >
-                        {`>`}
+                        {` ▶︎`}
                     </button>
 
                 </div>

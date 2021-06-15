@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import moment from "moment";
 import { setDate, setStartDate, setEndDate } from '../actions/filters'
+
 import { startLogout } from '../actions/auth'
 
 export class Header extends React.Component {
@@ -38,7 +39,7 @@ export class Header extends React.Component {
                         Calendar
                     </Link>
                 </div>
-        
+                
             </div>
         )
     }
