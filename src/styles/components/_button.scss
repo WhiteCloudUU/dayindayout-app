@@ -49,6 +49,6 @@
     font-family: 'PT Mono', monospace; // Must set font style here independently
 
     &:hover {
-        font-size: #{$header-font * 1.2};;
+        font-size: #{$header-font * 1.2};
     }
 }
